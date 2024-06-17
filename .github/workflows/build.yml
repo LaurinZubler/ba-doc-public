@@ -23,8 +23,9 @@ jobs:
 #          source_file: ba-doc-public.typ
 #      - run: mv ba-doc-public.pdf out/ba-doc-public.pdf
 
-# move pdf
+# move files
       - run: mv ba-doc-public.pdf out/
+      - run: mv favicon.png out/
 
 # upload docs to github pages
       - uses: actions/upload-pages-artifact@v1
