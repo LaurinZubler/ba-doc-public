@@ -18,10 +18,13 @@ jobs:
       - run: mv utils/build-time.js out/
 
 # build pdf
-      - uses: lvignoli/typst-action@main
-        with:
-          source_file: ba-doc-public.typ
-      - run: mv ba-doc-public.pdf out/ba-doc-public.pdf
+#      - uses: lvignoli/typst-action@main
+#        with:
+#          source_file: ba-doc-public.typ
+#      - run: mv ba-doc-public.pdf out/ba-doc-public.pdf
+
+# move pdf
+      - run: mv ba-doc-public.pdf out/
 
 # upload docs to github pages
       - uses: actions/upload-pages-artifact@v1
