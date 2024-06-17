@@ -1,0 +1,8 @@
+# ide
+.fleet
+.idea
+
+# typst
+main.pdf
+output.pdf
+review.pdf

@@ -1,0 +1,7 @@
+#let title = "upsi"
+#let subtitle = "a decentralized STI tracing approach"
+#let thesis = "Bachelor Thesis"
+#let term = "String Term 2024"
+#let author = "Laurin Zubler"
+#let advisor = "Dr. Thomas Bocek"
+#let coExaminer = "Sven Stucki"

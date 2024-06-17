@@ -1,0 +1,45 @@
+name: Build and Publish
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+# init
+    steps:
+      - uses: actions/checkout@v3
+      - run: mkdir out
+      - run: mv index.html out/
+
+# set build time on dashboard
+      - run: echo "export const buildTime = '$(TZ="Europe/Berlin" date +"%d.%m.%Y %H:%M:%S")'" > utils/build-time.js
+      - run: mv utils/build-time.js out/
+
+# build pdf
+      - uses: lvignoli/typst-action@main
+        with:
+          source_file: ba-doc-public.typ
+      - run: mv ba-doc-public.pdf out/ba-doc-public.pdf
+
+# upload docs to github pages
+      - uses: actions/upload-pages-artifact@v1
+        with: { path: 'out' }
+
+  Deploy:
+    name: Deploy
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: Build
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
