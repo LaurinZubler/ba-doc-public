@@ -67,13 +67,13 @@
 
     presContainer.addEventListener('click', () => {
         presContent.classList.toggle('hidden');
-        presContainer.style.height = presContent.classList.contains('hidden') ? '0' : '100%';
+        presContainer.style.height = presContent.classList.contains('hidden') ? 'auto' : '100%';
         presIcon.classList.toggle('rotate-180');
     });
 
     docContainer.addEventListener('click', () => {
         docContent.classList.toggle('hidden');
-        docContainer.style.height = docContent.classList.contains('hidden') ? '0' : '100%';
+        docContainer.style.height = docContent.classList.contains('hidden') ? 'auto' : '100%';
         docIcon.classList.toggle('rotate-180');
     });
 </script>
