@@ -28,8 +28,27 @@
             </div>
         </div>
         <div class="w-full lg:w-3/4 px-4 flex-1">
-            <div class="bg-white shadow-md rounded-lg h-full flex">
-                <object class="w-full h-full" type="application/pdf" data="/ba-doc-public/ba-doc-public.pdf"></object>
+            <div class="bg-white shadow-md rounded-lg h-full">
+                <div id="presContainer" class="p-4 cursor-pointer flex justify-between items-center">
+                    <span class="text-lg font-semibold">final presentation</span>
+                    <svg id="presIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+                <div id="presContent" class="hidden">
+                    <object class="w-full h-full" type="application/pdf" data="/ba-doc-public/ba-pres-public.pdf"></object>
+                </div>
+            </div>
+            <div class="bg-white shadow-md rounded-lg h-full mt-3">
+                <div id="docContainer" class="p-4 cursor-pointer flex justify-between items-center">
+                    <span class="text-lg font-semibold">documentation</span>
+                    <svg id="docIcon" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transform rotate-0 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                </div>
+                <div id="docContent" class="hidden">
+                    <object class="w-full h-full" type="application/pdf" data="/ba-doc-public/ba-doc-public.pdf"></object>
+                </div>
             </div>
         </div>
     </div>
@@ -37,6 +56,24 @@
 <script type="module">
     import {buildTime} from '/ba-doc-public/build-time.js';
     document.getElementById('buildTime').innerText = buildTime;
+
+    const presContainer = document.getElementById('presContainer');
+    const presContent = document.getElementById('presContent');
+    const presIcon = document.getElementById('presIcon');
+
+    const docContainer = document.getElementById('docContainer');
+    const docContent = document.getElementById('docContent');
+    const docIcon = document.getElementById('docIcon');
+
+    presContainer.addEventListener('click', () => {
+        presContent.classList.toggle('hidden');
+        presIcon.classList.toggle('rotate-180');
+    });
+
+    docContainer.addEventListener('click', () => {
+        docContent.classList.toggle('hidden');
+        docIcon.classList.toggle('rotate-180');
+    });
 </script>
 </body>
 </html>

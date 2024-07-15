@@ -25,6 +25,7 @@ jobs:
 
 # move files
       - run: mv ba-doc-public.pdf out/
+      - run: mv ba-pres-public.pdf out/
       - run: mv favicon.png out/
 
 # upload docs to github pages
