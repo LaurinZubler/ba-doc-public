@@ -67,11 +67,13 @@
 
     presContainer.addEventListener('click', () => {
         presContent.classList.toggle('hidden');
+        presContent.style.height = presContent.classList.contains('hidden') ? '0' : '600px';
         presIcon.classList.toggle('rotate-180');
     });
 
     docContainer.addEventListener('click', () => {
         docContent.classList.toggle('hidden');
+        docContent.style.height = docContent.classList.contains('hidden') ? '0' : '600px';
         docIcon.classList.toggle('rotate-180');
     });
 </script>
